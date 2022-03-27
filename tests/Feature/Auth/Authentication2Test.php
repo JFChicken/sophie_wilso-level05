@@ -20,7 +20,8 @@ class Authentication2Test extends TestCase
         ]);
 
         $this->assertAuthenticated();
-        $response->assertNoContent();
+        $response->assertHeader('Location',env('APP_URL').'/dashboard');
+//        $response->assertNoContent();
     }
 
     public function test_users_can_not_authenticate_with_invalid_password()
